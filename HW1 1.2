@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <math.h>
+
+long combi(int n, int m);
+long facto(int i);
+
+int main()
+{
+    int n = 10;
+    int m = 4 ;
+    float p = 0.227569289;
+    float u ;
+    float v = 0 ;
+    for (int j = 1 ; j <= m ; j++){
+        u = combi(n,j)*(pow(p,j))*(pow((1-p),(n-j)));
+        v = v + u ;
+    }
+    printf("%f\n",v);
+}
+
+long combi (int n, int m)
+    {
+        return facto(n)/(facto(m)*facto(n-m)) ;
+    }
+    
+    long facto (int i)
+    {
+        long long fact = 1 ;
+        while (i > 0)
+        {
+            fact = fact*i ;
+            i--;
+        }
+        return fact ;
+    }
