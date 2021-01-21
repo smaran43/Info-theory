@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int num_trials ;
+    scanf("%d", &num_trials);
+    printf("Num_trials : %d\n", num_trials);
+    
+    int n = num_trials;
+    
+    for( int i = 0 ; i < n ; i++ ){
+        
+        double val = rand()%1000000000;
+        double num_1 = val /1000000000 ; 
+        
+        if (num_1 <= 0.6036480859 && num_1 > 0){
+            printf("a");
+        }
+        if (num_1 <= 0.68783568831 && num_1 > 0.6036480859){
+            printf("b");
+        }
+        if (num_1 <= 0.72007897316 && num_1 > 0.68783568831){
+            printf("c");
+        }
+        if (num_1 < 1 && num_1 > 0.72007897316){
+            printf("d");
+        }
+    }
+}
