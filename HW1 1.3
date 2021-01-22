@@ -1,18 +1,20 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 int main()
 {
     int num_trials ;
     scanf("%d", &num_trials);
     printf("Num_trials : %d\n", num_trials);
+    srand(time(0));
     
     int n = num_trials;
     
     for( int i = 0 ; i < n ; i++ ){
         
-        double val = rand()%1000000000;
-        double num_1 = val /1000000000 ; 
+        double val = rand()%100000;
+        double num_1 = val /100000 ; 
         
         if (num_1 <= 0.603648085911566 && num_1 > 0){
             printf("a");
