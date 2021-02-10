@@ -1,0 +1,37 @@
+import numpy as np
+import math
+
+p_x = [0.314372114267757 , 0.417217842164094 , 0.268410043568149]
+
+val = 0
+for i in range(len(p_x)):
+    val = val - p_x[i]*(math.log(p_x[i],2))
+print("H(X) is : ",val)
+
+p_y = []
+for i in range(len(p_x)):
+    ele = 1 - p_x[i]
+    p_y.append(ele)
+
+val_1 = 0
+for i in range(len(p_y)):
+    val_1 = val_1 - p_y[i]*(math.log(p_y[i],2))
+print("H(Y) is : ",val_1)
+
+p_yx = [0.223277978780082 , 0.268591951771537 , 0.508130069448382 , 0.530449731470594 , 0.284036732257551 , 0.185513536271855 , 0.246272289749325 , 0.447371315970912 , 0.306356394279763]
+
+val_2 = 0
+for i in range(len(p_x)):
+    for j in range(len(p_yx)):
+        val_2 = val_2 - p_x[i]*p_yx[j]*(math.log(p_yx[j],2))
+print("H(Y|X) is :",val_2)
+
+val_3 = val + val_2 
+print("H(X,Y) is :", val_3)
+
+val_4 = val_3 - val_1
+print("H(X|Y) is :",val_4) 
+
+val_5 = val_1 - val_2
+print("I(X,Y) is :", val_5)
+
